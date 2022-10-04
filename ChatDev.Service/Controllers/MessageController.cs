@@ -10,11 +10,9 @@ namespace ChatDev.Service.Controllers
     [Route("[controller]")]
     public class MessageController : Controller
     {
-        private List<Message> messages;
         IHubContext<SignalRHub> hub;
         public MessageController(IHubContext<SignalRHub> hub)
         {
-            this.messages = new List<Message>();
             this.hub = hub;
         }
 

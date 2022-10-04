@@ -1,11 +1,8 @@
-﻿using ChatDev.Service.Models;
+﻿using ChatDev.Models;
 using ChatDev.Service.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ChatDev.Service.Controllers
 {
@@ -24,7 +21,7 @@ namespace ChatDev.Service.Controllers
         [HttpPost]
         public void Create([FromBody] Message value)
         {
-            this.logic.Create(value);
+            //this.logic.Create(value);
             this.hub.Clients.All.SendAsync("ActorCreated", value);
         }
     }

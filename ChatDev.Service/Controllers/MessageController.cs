@@ -1,5 +1,7 @@
 ﻿using ChatDev.Service.Models;
+using ChatDev.Service.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +14,18 @@ namespace ChatDev.Service.Controllers
     public class MessageController : Controller
     {
         private List<Message> messages;
-        public IActionResult Index()
+        IHubContext<SignalRHub> hub;
+        public MessageController(IHubContext<SignalRHub> hub)
         {
-            return View();
+            this.messages = new List<Message>();
+            this.hub = hub;
         }
 
+        [HttpPost]
+        public void Create([FromBody] Message value)
+        {
+            this.logic.Create(value);
+            this.hub.Clients.All.SendAsync("ActorCreated", value);
+        }
     }
 }

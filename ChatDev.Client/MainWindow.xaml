@@ -9,7 +9,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="1">
@@ -18,10 +18,10 @@
                 <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
 
-            <ListBox Grid.Row="0">
+            <ListBox Grid.Row="0" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        
+                        <Label Content=""></Label>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
                 

@@ -23,6 +23,7 @@ namespace ChatDev.Client
         public MainWindow()
         {
             InitializeComponent();
+            ;
         }
     }
 }
